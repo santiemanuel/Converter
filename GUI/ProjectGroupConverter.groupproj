@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{72FA61DC-D603-4939-BE79-A32D49A92C4D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FormConverter.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FormConverter">
+        <MSBuild Projects="FormConverter.dproj"/>
+    </Target>
+    <Target Name="FormConverter:Clean">
+        <MSBuild Projects="FormConverter.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FormConverter:Make">
+        <MSBuild Projects="FormConverter.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FormConverter"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FormConverter:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FormConverter:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
